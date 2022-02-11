@@ -39,32 +39,46 @@ const TodoList = () => {
 
     return(
         <div>
-            <h1>TODO LIST</h1>
+            <br />
+            <h1 className='ui teal header'>TODO LIST</h1>
+            <br />
             {todos.length ? (
                 todos.map((todo) => {
-                    return <div key={todo.id}>
+                    return <div key={todo.id} style={{margin:'2rem'}}>
                         {editId === todo.id ? (
-                            <input type="text" onChange={handleSubmitEdit} />
+                            <div className='ui input'>
+                                <input type="text" onChange={handleSubmitEdit} />
+                            </div>
                         ) : (
                             <h3>{todo.text}</h3>
                         )}
-                        {editId === todo.id ? (
-                            <button onClick={handleEdit.bind(this,todo.id)}>Submit Edit</button>
-                        ) : (
-                            <button onClick={handleEditId.bind(this,todo.id)}>Edit</button>
-                        )}                        
-                        <button onClick={handleRemoveTodo.bind(this,todo.id)}>Delete</button>
-                        <input type="checkbox" onChange={handleStatus.bind(this,todo.id)} checked={todo.status}/>
-                        <label>{todo.status ? ("Selesai") : ("Belum Selesai")}</label>
+                        <div className='ui buttons'>
+                            {editId === todo.id ? (
+                                <button className='ui positive button' onClick={handleEdit.bind(this,todo.id)}>Submit Edit</button>
+                            ) : (
+                                <button className='ui positive button' onClick={handleEditId.bind(this,todo.id)}>Edit</button>
+                            )}
+                            <div className='or'></div>
+                            <button className='ui negative button' onClick={handleRemoveTodo.bind(this,todo.id)}>Delete</button>
+                        </div>
+                        <div className='ui checked checkbox' style={{margin: '2rem'}}>
+                            <input type="checkbox" onChange={handleStatus.bind(this,todo.id)} checked={todo.status}/>
+                            <label>{todo.status ? (<h4>Selesai</h4>) : (<h4>Belum Selesai</h4>)}</label>
+                        </div>
                     </div>
                 })
             ) : (
-                <h4>You Have No Todo!</h4>
+                <>
+                <h4 className='ui red header'>You Have No Todo!</h4>
+                <br />
+                </>
             )}
             <form onSubmit={handleFormSubmit}>
-                <label htmlFor="todo">Add Todo</label>
-                <input type="text" onChange={handleChange}/>
-                <button type='submit'>Add New Todo</button>
+                <label className='ui teal header'  htmlFor="todo">Add Todo</label>
+                <div className='ui input'>
+                    <input type="text" onChange={handleChange}/>
+                </div>
+                <button className='ui button' type='submit'>Add New Todo</button>
             </form>
         </div>
     );
