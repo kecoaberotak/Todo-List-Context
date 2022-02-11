@@ -63,7 +63,7 @@ const TodoList = () => {
                         </div>
                         <div className='ui checked checkbox' style={{margin: '2rem'}}>
                             <input type="checkbox" onChange={handleStatus.bind(this,todo.id)} checked={todo.status}/>
-                            <label>{todo.status ? (<h4>Selesai</h4>) : (<h4>Belum Selesai</h4>)}</label>
+                            <label>{todo.status ? (<h4>Selesai <i className='cn flag'></i></h4>) : (<h4>Belum Selesai <i className='kp flag'></i></h4>)}</label>
                         </div>
                     </div>
                 })
