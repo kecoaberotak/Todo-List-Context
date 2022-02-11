@@ -78,7 +78,7 @@ const TodoList = () => {
                 <div className='ui input'>
                     <input type="text" onChange={handleChange}/>
                 </div>
-                <button className='ui button' type='submit'>Add New Todo</button>
+                <button className='ui button' type='submit'><i class="hand spock outline icon"></i></button>
             </form>
         </div>
     );
