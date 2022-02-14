@@ -41,7 +41,6 @@ const TodoListContextProvider = ({children}) => {
 
     const editTodoText = (text) => {
         setEditText(text);
-        console.log(editText)
     };
 
     const editTodo = (todoId) => {
